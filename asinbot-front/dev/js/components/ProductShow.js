@@ -26,16 +26,17 @@ class ProductShow extends Component {
 
          <div>
            {reviews.reverse().map(review => (
-             <div className="review" key={review.id}>
-               <h3>{review.reviewer}</h3>
-               <img src={review.avatar}/>
-               <h4>{review.date}</h4>
-               <h5>{review.review_header}</h5>
-               <p>{review.review_body}</p>
-               <p>{review.type_and_verified}</p>
-               <hr/>
-             </div>
-           ))}
+              <div className="review" key={review.id}>
+                <h3>{review.reviewer}</h3>
+                <img src={review.avatar}/>
+                <h5>{review.date}</h5>
+                <h5>{review.review_header}</h5>
+                <p>{review.review_body}</p>
+                <p>{review.type_and_verified}</p>
+                <hr/>
+              </div>
+              )
+            )}
          </div>
 
       </div>
