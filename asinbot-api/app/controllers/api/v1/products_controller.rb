@@ -19,7 +19,7 @@ module Api
       end
 
       def show
-        render json: @product 
+        render json: @product = Product.find(params[:id])
       end
 
       def destroy

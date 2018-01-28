@@ -19,7 +19,7 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <Router history={browserHistory} routes={routes}/>
+        <Router history={hashHistory} routes={routes}/>
     </Provider>,
     document.getElementById('root')
 );

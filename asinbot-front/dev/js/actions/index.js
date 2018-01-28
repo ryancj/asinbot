@@ -21,7 +21,7 @@ export function createProduct(props){
   }
 }
 
-export function getProduct(props){
+export function getProduct(id){
   const request = axios.get(`${API_URL}/products/${id}`); //Send get request to url
 
   return{
