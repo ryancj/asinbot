@@ -4,13 +4,19 @@ module Api
       before_action :set_product, only: [:show, :destroy]
 
       def index
-        render json: Products.all
+        render json: Product.all
       end
 
       def new
       end
 
       def create
+        @product = Product.create(product_params)
+        if @product.save
+          render json: @product, status: 201
+        else
+          render json: {errors: @product.errors.full_messages}, status: 422
+        end
       end
 
       def show
@@ -23,6 +29,8 @@ module Api
       end
 
       def destroy
+        @product.destroy
+        render :show, status: :ok
       end
 
       private
