@@ -8,7 +8,7 @@ import promise from 'redux-promise';
 import createLogger from 'redux-logger';
 import allReducers from './reducers';
 import App from './components/App';
-import {Router, browserHistory} from 'react-router';
+import {Router, browserHistory, hashHistory} from 'react-router';
 import routes from './routes';
 
 const logger = createLogger();

@@ -7,11 +7,10 @@ module Api
         render json: Product.all
       end
 
-      def new
-      end
-
       def create
         @product = Product.create(product_params)
+        scrape(@product.asin)
+        
         if @product.save
           render json: @product, status: 201
         else
@@ -20,12 +19,6 @@ module Api
       end
 
       def show
-      end
-
-      def edit
-      end
-
-      def update
       end
 
       def destroy
@@ -41,6 +34,21 @@ module Api
 
       def product_params
         params.permit(:product_name, :avg_rating, :total_reviews, :asin)
+      end
+
+      def scrape(asin)
+        agent = Mechanize.new
+        agent.history_added = Proc.new { sleep 0.5 }
+        page = agent.get("https://www.amazon.com/dp/#{asin}")
+
+        product_name = page.at('span#productTitle').text.strip
+        avg_rating = page.at("i[data-hook='average-star-rating']").text
+        total_reviews = page.search("span[data-hook='total-review-count']").text
+
+        @product.product_name = product_name
+        @product.avg_rating = avg_rating
+        @product.total_reviews  = total_reviews
+        end
       end
 
     end
