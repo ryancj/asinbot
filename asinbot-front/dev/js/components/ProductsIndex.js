@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-export default class ProductsIndex extends Component {
+import {connect} from 'react-redux';
+import {getProducts} from '../actions/index';
+
+class ProductsIndex extends Component {
+  componentWillMount(){
+    this.props.getProducts();
+  }
   render(){
     return (
       <div className="container">
@@ -8,3 +14,5 @@ export default class ProductsIndex extends Component {
     )
   }
 }
+
+export default connect(null, {getProducts: getProducts})(ProductsIndex);
