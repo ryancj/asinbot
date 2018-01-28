@@ -19,7 +19,7 @@ module Api
       end
 
       def show
-        render json: @product = Product.find(params[:id])
+        render json: @product
       end
 
       def destroy
@@ -47,10 +47,12 @@ module Api
         page = agent.get("https://www.amazon.com/dp/#{asin}")
 
         product_name = page.at('span#productTitle').text.strip
+        image = page.search("#landingImage").attribute('src').value
         avg_rating = page.at("i[data-hook='average-star-rating']").text
         total_reviews = page.search("span[data-hook='total-review-count']").text
 
         @product.product_name = product_name
+        @product.image = image
         @product.avg_rating  = avg_rating
         @product.total_reviews  = total_reviews
 

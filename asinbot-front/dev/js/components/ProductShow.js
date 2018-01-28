@@ -17,6 +17,7 @@ class ProductShow extends Component {
     return (
       <div className="container">
         <h3>Product name: {this.props.product.product_name}</h3>
+        <img src={this.props.product.image}/>
         <p>Avg Rating: {this.props.product.avg_rating}</p>
         <p>Total Reviews: {this.props.product.total_reviews}</p>
         <p>Asin: {this.props.product.asin}</p>
