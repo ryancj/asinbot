@@ -20,3 +20,12 @@ export function createProduct(props){
     payload: request
   }
 }
+
+export function getProduct(props){
+  const request = axios.get(`${API_URL}/products/${id}`); //Send get request to url
+
+  return{
+       type: GET_PRODUCT,
+    payload: request
+  }
+}

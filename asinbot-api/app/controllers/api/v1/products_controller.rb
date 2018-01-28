@@ -19,6 +19,7 @@ module Api
       end
 
       def show
+        render json: @product 
       end
 
       def destroy
@@ -34,6 +35,10 @@ module Api
 
       def product_params
         params.permit(:product_name, :avg_rating, :total_reviews, :asin)
+      end
+
+      def review_params
+        params.permit(:review_header, :reviewer, :rating, :review_body, :date, :avatar, :type_and_verified)
       end
 
       def scrape(asin)
@@ -72,7 +77,6 @@ module Api
           @review.type_and_verified = type_and_verified
 
           @review.product = @product
-          binding.pry
           @review.save
         end
       end

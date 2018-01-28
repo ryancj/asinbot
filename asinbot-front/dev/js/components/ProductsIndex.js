@@ -12,7 +12,7 @@ class ProductsIndex extends Component {
       return (
         <li key={product.id}>
           <Link to={"products/" + product.id}>
-            <h4>{product.asin}</h4>
+            <h4>{product.product_name}</h4>
           </Link>
         </li>
       )
