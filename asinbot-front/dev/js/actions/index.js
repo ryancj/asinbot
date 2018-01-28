@@ -1,4 +1,4 @@
-import {GET_PRODUCTS} from './types';
+import {GET_PRODUCTS, GET_PRODUCT, CREATE_PRODUCT} from './types';
 import axios from 'axios';
 
 const API_URL = "http://localhost:5000/api/v1"
@@ -8,6 +8,15 @@ export function getProducts(){
 
   return{
        type: GET_PRODUCTS,
+    payload: request
+  }
+}
+
+export function createProduct(props){
+  const request = axios.post(`${API_URL}/products`, props); //Send get request to url
+
+  return{
+       type: CREATE_PRODUCT,
     payload: request
   }
 }

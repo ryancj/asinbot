@@ -7,17 +7,35 @@ class ProductsIndex extends Component {
   componentWillMount(){
     this.props.getProducts();
   }
+  renderProducts(){
+    return this.props.products.map((product) => {
+      return (
+        <li key={product.id}>
+          <Link to={"products/" + product.id}>
+            <h4>{product.asin}</h4>
+          </Link>
+        </li>
+      )
+    });
+  }
   render(){
     return (
       <div className="container">
         <div>
           <Link to="products/new" className="btn btn-warning">Find Product</Link>
         </div>
-        
+
         Products Index
+        <ul>
+          {this.renderProducts()}
+        </ul>
       </div>
     )
   }
 }
 
-export default connect(null, {getProducts: getProducts})(ProductsIndex);
+function mapStateToProps(state){
+  return { products: state.products.all }
+}
+
+export default connect(mapStateToProps, {getProducts: getProducts})(ProductsIndex);

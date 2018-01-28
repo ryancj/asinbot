@@ -1,4 +1,4 @@
-import {GET_PRODUCTS} from '../actions/index';
+import {GET_PRODUCTS} from '../actions/types';
 
 const INITIAL_STATE = {all: [], product: null};
 
