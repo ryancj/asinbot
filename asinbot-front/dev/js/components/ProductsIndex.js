@@ -22,7 +22,7 @@ class ProductsIndex extends Component {
     return (
       <div className="container">
         <div>
-          <Link to="products/new" className="btn btn-warning">Find Product</Link>
+          <Link to="products/new" className="btn btn-primary">Find Product</Link>
         </div>
 
         Products Index
