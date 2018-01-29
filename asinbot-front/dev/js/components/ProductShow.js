@@ -18,42 +18,100 @@ class ProductShow extends Component {
     });
   }
 
+
   render(){
     if(!this.props.product){
-      return <div>Finding product, please wait...</div>
+      return (
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12">
+              <div className="card please-wait-card">
+                <div className="card-body justify-content-center align-items-center">
+                  <div className="index-nothing text-center">
+                    Please wait, finding product...
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
     }
 
     const reviews = this.props.product.reviews;
 
     return (
+      <div>
+
+
       <div className="container">
-        <button className="btn btn-warning" onClick={this.deleteButtonClick.bind(this)}>
-          Delete Product
-        </button>
-
-        <h3>Product name: {this.props.product.product_name}</h3>
-        <img src={this.props.product.image}/>
-        <p>Avg Rating: {this.props.product.avg_rating}</p>
-        <p>Total Reviews: {this.props.product.total_reviews}</p>
-        <p>Asin: {this.props.product.asin}</p>
-
-        <hr/>
-        <h4>Reviews</h4>
-
-         <div>
-           {reviews.reverse().map(review => (
-              <div className="review" key={review.id}>
-                <h3>{review.reviewer}</h3>
-                <img src={review.avatar}/>
-                <h5>{review.date}</h5>
-                <h5>{review.review_header}</h5>
-                <p>{review.review_body}</p>
-                <p>{review.type_and_verified}</p>
-                <hr/>
+        <div className="card new-card">
+          <div className="card-body new-card-body">
+            <div className="new-card-grad"></div>
+            <div className="row d-flex align-items-center inner-padding">
+              <div className="col-lg-7">
+                <div className="d-flex align-items-center show-info-container">
+                  <div className="show-info-group">
+                    <div>Asin</div>
+                    <strong>{this.props.product.asin}</strong>
+                  </div>
+                  <div className="show-info-group">
+                    <div>Average Rating</div>
+                    <strong>{this.props.product.avg_rating}</strong>
+                  </div>
+                  <div className="show-info-group">
+                    <div>Total Reviews</div>
+                    <strong>{this.props.product.total_reviews}</strong>
+                  </div>
+                </div>
+                <h2 className="brand-dark">{this.props.product.product_name}</h2>
+                <button className="btn btn-warning delete-btn"
+                  onClick={this.deleteButtonClick.bind(this)}>
+                  <i className="fa fa-ban" aria-hidden="true"></i>
+                  Delete product
+                </button>
               </div>
-              )
-            )}
-         </div>
+              <div className="col-lg-5">
+                <img src={this.props.product.image} className="mx-auto d-block"/>
+              </div>
+              <div className="col-lg-12">
+                <h4 className="section-header reviews-header">
+                  Featured Reviews
+                  <hr/>
+                </h4>
+              </div>
+
+              {reviews.map(review => (
+                <div className="col-lg-12" key={review.id}>
+                  <div className="review" >
+                    <div className="d-flex align-items-center justify-content-between">
+                      <div className="review-header-group">
+                        <img src={review.avatar} className="review-avatar"/>
+                        <strong>{review.reviewer}</strong>
+                      </div>
+                      <span className="review-date">{review.date}</span>
+                    </div>
+                    <hr style={{margin: "0.5em 0"}}/>
+                    <h5 className="review-header">
+                      <strong className="brand-pink">{review.rating} </strong>
+                      - {review.review_header}
+                    </h5>
+                    <p>{review.review_body}</p>
+                    <span className="review-type">{review.type_and_verified}</span>      
+                  </div>
+                </div>
+                )
+              )}
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
 
       </div>
     );

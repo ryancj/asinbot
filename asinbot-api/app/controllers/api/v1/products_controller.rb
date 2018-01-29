@@ -63,7 +63,7 @@ module Api
 
           reviewer = review_data.search('span.a-profile-name').text
           avatar = review.search('.a-profile-avatar img')[1].attribute('src').value
-          rating = review_data.search("i[data-hook='review-star-rating']").text[0..2]
+          rating = review_data.search("i[data-hook='review-star-rating']").text
           review_header = review_data.search("a[data-hook='review-title']").text
           date = review.search("span[data-hook='review-date']").text
           review_body = review_data.search("div[data-hook='review-collapsed']").text

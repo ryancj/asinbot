@@ -11,6 +11,17 @@ $brand-grey: #EEF7f8;
 $shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 $hover-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
+//Helper
+.brand-pink {
+	color: $brand-pink;
+}
+.brand-dark {
+	color: $brand-dark;
+}
+.brand-darkorange {
+	color: $brand-darkorange;
+}
+
 body {
 	background: $brand-grey;
 	padding-bottom: 3em;
@@ -123,8 +134,7 @@ body {
 }
 
 .total-reviews-index {
-	color: rgba(39, 69, 85, 0.7);
-	color: $brand-darkorange;
+	color: rgba(39, 69, 85, 0.6);
 }
 
 //New page styling
@@ -178,4 +188,77 @@ body {
 .find-btn:hover {
 	background: $brand-darkpink;
 	border-color: $brand-darkpink;
+}
+
+//Show page styling
+
+.please-wait-card {
+	margin-top: 1em;
+}
+
+.show-info-container {
+	color: $brand-dark;
+}
+
+.show-info-group {
+	margin: 1em 3em 1em 0;
+}
+.show-info-group > div {
+	color: rgba(39, 69, 85, 0.7);
+}
+.show-info-group > strong {
+	color: $brand-pink;
+}
+
+.fa.fa-ban {
+	display: inline-block;
+	margin-right: 0.2em;
+}
+
+.delete-btn {
+	margin-top: 2em;
+	font-size: 12px;
+}
+
+//Reviews styling
+
+.reviews-header {
+	margin: 1em 0 0;
+}
+
+.review {
+	padding: 1.2rem;
+	border: 2px solid rgba(0,0,0,.2);
+	border-radius: .25rem;
+	margin-bottom: 1em;
+}
+
+.review-avatar {
+	height: 35px;
+	width: 35px;
+	border-radius: 35px;
+	margin-right: 0.5em;
+}
+
+.review-header-group > strong {
+	color: $brand-pink;
+}
+
+.review-date {
+	font-size: 14px;
+	color: rgba(39, 69, 85, 0.7);
+}
+
+.review-header {
+	margin: 1em 0 0.7em;
+}
+
+.review-type {
+	background: $brand-pink;
+	color: #FFF;
+	display: inline-block;
+	margin: 0.5em 0 0.5em;
+	border-radius: 0.25rem;
+	font-size: 12px;
+	padding: 5px 7px;
 }
