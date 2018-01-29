@@ -9,24 +9,38 @@ class ProductsIndex extends Component {
   }
 
   renderProducts(){
-    return this.props.products.map((product) => {
+    if(this.props.products.length < 1){
       return (
-        <div className="col-lg-4" key={product.id}>
-          <Link to={"products/" + product.id} className="card-link">
+        <div className="col-lg-12">
           <div className="card">
-            <div className="card-body">
-              <div className="text-center">
-                <img className="card-img" src={product.image}/>
-                  <div className="card-title">
-                    {product.product_name}
+            <div className="card-body justify-content-center align-items-center">
+              <div className="index-nothing">
+                Couldn't find anything in my database, but I'm ready when you are <i className="fa fa-smile-o"></i>!
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    } else {
+      return this.props.products.map((product) => {
+        return (
+          <div className="col-lg-4" key={product.id}>
+            <Link to={"products/" + product.id} className="card-link">
+              <div className="card my-card">
+                <div className="card-body">
+                  <div className="text-center">
+                    <img className="card-img" src={product.image}/>
+                    <div className="card-title">
+                      {product.product_name}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        </div>
-      )
-    });
+            </Link>
+          </div>
+        )
+      });
+    }
   }
 
   render(){
@@ -47,7 +61,7 @@ class ProductsIndex extends Component {
               </div>
               <div className="col-lg-5">
 
-                <img className="mx-auto d-block" src="https://i.imgur.com/kV5FHxH.png" height="350"/>
+                <img className="mx-auto d-block" src="https://i.imgur.com/Bmy7e4B.png" height="350"/>
 
               </div>
             </div>

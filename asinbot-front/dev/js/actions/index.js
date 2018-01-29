@@ -1,4 +1,4 @@
-import {GET_PRODUCTS, GET_PRODUCT, CREATE_PRODUCT} from './types';
+import {GET_PRODUCTS, GET_PRODUCT, CREATE_PRODUCT, DELETE_PRODUCT} from './types';
 import axios from 'axios';
 
 const API_URL = "http://localhost:5000/api/v1"
@@ -26,6 +26,14 @@ export function getProduct(id){
 
   return{
        type: GET_PRODUCT,
+    payload: request
+  }
+}
+export function deleteProduct(id){
+  const request = axios.delete(`${API_URL}/products/${id}`); //Send get request to url
+
+  return{
+       type: DELETE_PRODUCT,
     payload: request
   }
 }

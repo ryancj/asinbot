@@ -1,10 +1,21 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import {getProduct} from '../actions/index';
+import {getProduct, deleteProduct} from '../actions/index';
 
 class ProductShow extends Component {
+  static contextTypes = {
+    router: PropTypes.object
+  }
+
   componentWillMount(){
     this.props.getProduct(this.props.params.id);
+  }
+
+  deleteButtonClick(){
+    this.props.deleteProduct(this.props.params.id)
+    .then(() => {
+      this.context.router.push('/');
+    });
   }
 
   render(){
@@ -16,6 +27,10 @@ class ProductShow extends Component {
 
     return (
       <div className="container">
+        <button className="btn btn-warning" onClick={this.deleteButtonClick.bind(this)}>
+          Delete Product
+        </button>
+
         <h3>Product name: {this.props.product.product_name}</h3>
         <img src={this.props.product.image}/>
         <p>Avg Rating: {this.props.product.avg_rating}</p>
@@ -49,4 +64,4 @@ function mapStateToProps(state){
   return { product: state.products.product };
 }
 
-export default connect(mapStateToProps, {getProduct})(ProductShow);
+export default connect(mapStateToProps, {getProduct, deleteProduct})(ProductShow);
