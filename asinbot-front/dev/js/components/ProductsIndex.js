@@ -7,28 +7,59 @@ class ProductsIndex extends Component {
   componentWillMount(){
     this.props.getProducts();
   }
+
   renderProducts(){
     return this.props.products.map((product) => {
       return (
-        <li key={product.id}>
-          <Link to={"products/" + product.id}>
-            <h4>{product.product_name}</h4>
+        <div className="col-lg-4" key={product.id}>
+          <Link to={"products/" + product.id} className="card-link">
+          <div className="card">
+            <div className="card-body">
+              <div className="text-center">
+                <img className="card-img" src={product.image}/>
+                  <div className="card-title">
+                    {product.product_name}
+                  </div>
+                </div>
+              </div>
+            </div>
           </Link>
-        </li>
+        </div>
       )
     });
   }
+
   render(){
     return (
-      <div className="container">
-        <div>
-          <Link to="products/new" className="btn btn-primary">Find Product</Link>
+      <div>
+        <div className="section-container">
+          <div className="container">
+            <div className="row d-flex align-items-center">
+              <div className="col-lg-7">
+
+                <h1 id="main-header">ASINBot</h1>
+                <h4 id="sub-header">
+                  A simple Asin Lookup Tool for Amazon users. Find reviews for your product with just <strong>one click</strong>!
+                </h4>
+                <Link to="products/new" className="btn btn-outline-light btn-lg
+                main-cta">Find a product</Link>
+
+              </div>
+              <div className="col-lg-5">
+
+                <img className="mx-auto d-block" src="https://i.imgur.com/kV5FHxH.png" height="350"/>
+
+              </div>
+            </div>
+          </div>
         </div>
 
-        Products Index
-        <ul>
-          {this.renderProducts()}
-        </ul>
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12"><h2 className="section-header text-center">Recently found products</h2></div>
+            {this.renderProducts()}
+          </div>
+        </div>
       </div>
     )
   }
