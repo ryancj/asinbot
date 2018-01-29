@@ -13,6 +13,10 @@ gem 'puma', '~> 3.7'
 gem 'rack-cors'
 #For JSON customization
 gem 'active_model_serializers'
+#Scraper of choice
+gem 'mechanize'
+#debugging
+gem 'pry-byebug'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -25,6 +29,3 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'mechanize'
-gem 'pry-byebug'

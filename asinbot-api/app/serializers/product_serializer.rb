@@ -1,7 +1,6 @@
 class ProductSerializer < ActiveModel::Serializer
   attributes :id, :product_name, :avg_rating, :total_reviews, :asin, :image
   has_many :reviews
-  # embed :ids, include: true Outside of root node and review_ids
 end
 
 #Product Table Schema
