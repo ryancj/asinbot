@@ -1,6 +1,6 @@
 # ASINBot - README
 
-##The a cool ASIN Lookup tool!
+## A cool ASIN Lookup tool!
 
 ![ASINBot](asinbot_readme.png)
 
