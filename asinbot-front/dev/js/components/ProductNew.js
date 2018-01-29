@@ -24,6 +24,7 @@ class ProductNew extends Component {
             <div className="card-body new-card-body">
               <div className="new-card-grad"></div>
               <div className="row d-flex align-items-center inner-padding">
+
                 <div className="col-lg-7">
                   <h1 className="new-header">Find a product</h1>
                   <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
@@ -39,6 +40,7 @@ class ProductNew extends Component {
                 <div className="col-lg-5">
                   <img className="mx-auto d-block" src="https://i.imgur.com/Bmy7e4B.png" height="350"/>
                 </div>
+
               </div>
             </div>
           </div>

@@ -18,8 +18,8 @@ class ProductShow extends Component {
     });
   }
 
-
   render(){
+    //When loading the product, show this in the mean time
     if(!this.props.product){
       return (
         <div className="container">
@@ -43,37 +43,40 @@ class ProductShow extends Component {
     return (
       <div>
 
+        <div className="container">
+          <div className="card new-card">
+            <div className="card-body new-card-body">
+              <div className="new-card-grad"></div>
+              <div className="row d-flex align-items-center inner-padding">
 
-      <div className="container">
-        <div className="card new-card">
-          <div className="card-body new-card-body">
-            <div className="new-card-grad"></div>
-            <div className="row d-flex align-items-center inner-padding">
-              <div className="col-lg-7">
-                <div className="d-flex align-items-center show-info-container">
-                  <div className="show-info-group">
-                    <div>Asin</div>
-                    <strong>{this.props.product.asin}</strong>
+                <div className="col-lg-7">
+                  <div className="d-flex align-items-center show-info-container">
+                    <div className="show-info-group">
+                      <div>Asin</div>
+                      <strong>{this.props.product.asin}</strong>
+                    </div>
+                    <div className="show-info-group">
+                      <div>Average Rating</div>
+                      <strong>{this.props.product.avg_rating}</strong>
+                    </div>
+                    <div className="show-info-group">
+                      <div>Total Reviews</div>
+                      <strong>{this.props.product.total_reviews}</strong>
+                    </div>
                   </div>
-                  <div className="show-info-group">
-                    <div>Average Rating</div>
-                    <strong>{this.props.product.avg_rating}</strong>
-                  </div>
-                  <div className="show-info-group">
-                    <div>Total Reviews</div>
-                    <strong>{this.props.product.total_reviews}</strong>
-                  </div>
+                  <h2 className="brand-dark">{this.props.product.product_name}</h2>
+                  <button className="btn btn-warning delete-btn"
+                    onClick={this.deleteButtonClick.bind(this)}>
+                    <i className="fa fa-ban" aria-hidden="true"></i>
+                    Delete product
+                  </button>
                 </div>
-                <h2 className="brand-dark">{this.props.product.product_name}</h2>
-                <button className="btn btn-warning delete-btn"
-                  onClick={this.deleteButtonClick.bind(this)}>
-                  <i className="fa fa-ban" aria-hidden="true"></i>
-                  Delete product
-                </button>
+
+                <div className="col-lg-5">
+                  <img src={this.props.product.image} className="mx-auto d-block"/>
+                </div>
               </div>
-              <div className="col-lg-5">
-                <img src={this.props.product.image} className="mx-auto d-block"/>
-              </div>
+              
               <div className="col-lg-12">
                 <h4 className="section-header reviews-header">
                   Featured Reviews
@@ -97,7 +100,7 @@ class ProductShow extends Component {
                       - {review.review_header}
                     </h5>
                     <p>{review.review_body}</p>
-                    <span className="review-type">{review.type_and_verified}</span>      
+                    <span className="review-type">{review.type_and_verified}</span>
                   </div>
                 </div>
                 )
@@ -106,12 +109,6 @@ class ProductShow extends Component {
             </div>
           </div>
         </div>
-      </div>
-
-
-
-
-
 
       </div>
     );

@@ -7,7 +7,6 @@ $brand-darkpink: #D14752;;
 $brand-orange: #FFC371;
 $brand-darkorange: #EFB566;
 $brand-grey: #EEF7f8;
-
 $shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 $hover-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 
@@ -223,7 +222,7 @@ body {
 //Reviews styling
 
 .reviews-header {
-	margin: 1em 0 0;
+	margin: 0;
 }
 
 .review {

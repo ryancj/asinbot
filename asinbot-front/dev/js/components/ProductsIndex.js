@@ -5,12 +5,13 @@ import {Link} from 'react-router';
 
 class ProductsIndex extends Component {
   componentWillMount(){
-    this.props.getProducts();
+    this.props.getProducts(); //Load products by calling the action method
   }
 
   renderProducts(){
     if(this.props.products.length < 1){
       return (
+        //When the database is empty
         <div className="col-lg-12">
           <div className="card">
             <div className="card-body justify-content-center align-items-center">
@@ -59,19 +60,15 @@ class ProductsIndex extends Component {
           <div className="container">
             <div className="row d-flex align-items-center">
               <div className="col-lg-7">
-
                 <h1 id="main-header">ASINBot</h1>
                 <h4 id="sub-header">
                   A simple ASIN Lookup Tool for Amazon users. Find reviews for any product with just <strong>one click</strong>!
                 </h4>
                 <Link to="products/new" className="btn btn-outline-light btn-lg
                 main-cta">Find a product</Link>
-
               </div>
               <div className="col-lg-5">
-
                 <img className="mx-auto d-block" src="https://i.imgur.com/Bmy7e4B.png" height="350"/>
-
               </div>
             </div>
           </div>
