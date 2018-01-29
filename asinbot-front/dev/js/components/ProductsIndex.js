@@ -26,9 +26,18 @@ class ProductsIndex extends Component {
         return (
           <div className="col-lg-4" key={product.id}>
             <Link to={"products/" + product.id} className="card-link">
-              <div className="card my-card">
+              <div className="card index-card">
                 <div className="card-body">
                   <div className="text-center">
+                    <div className="d-flex justify-content-between">
+                      <div className="avg-rating-index">
+                        <strong>{product.avg_rating}</strong><br/>
+                        <span style={{fontSize: 12}}>AVG</span>
+                      </div>
+                      <div className="total-reviews-index">
+                        Total reviews: <strong>{product.total_reviews}</strong>
+                      </div>
+                    </div>
                     <img className="card-img" src={product.image}/>
                     <div className="card-title">
                       {product.product_name}
@@ -53,7 +62,7 @@ class ProductsIndex extends Component {
 
                 <h1 id="main-header">ASINBot</h1>
                 <h4 id="sub-header">
-                  A simple Asin Lookup Tool for Amazon users. Find reviews for your product with just <strong>one click</strong>!
+                  A simple ASIN Lookup Tool for Amazon users. Find reviews for any product with just <strong>one click</strong>!
                 </h4>
                 <Link to="products/new" className="btn btn-outline-light btn-lg
                 main-cta">Find a product</Link>

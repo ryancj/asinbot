@@ -48,7 +48,7 @@ module Api
 
         product_name = page.at('span#productTitle').text.strip
         image = page.search("#landingImage").attribute('src').value
-        avg_rating = page.at("i[data-hook='average-star-rating']").text
+        avg_rating = page.at("i[data-hook='average-star-rating']").text[0..2]
         total_reviews = page.search("span[data-hook='total-review-count']").text
 
         @product.product_name = product_name
