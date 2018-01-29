@@ -76,9 +76,9 @@ class ProductShow extends Component {
                   <img src={this.props.product.image} className="mx-auto d-block"/>
                 </div>
               </div>
-              
+
               <div className="col-lg-12">
-                <h4 className="section-header reviews-header">
+                <h4 className="section-header review-section-split">
                   Featured Reviews
                   <hr/>
                 </h4>
@@ -95,11 +95,11 @@ class ProductShow extends Component {
                       <span className="review-date">{review.date}</span>
                     </div>
                     <hr style={{margin: "0.5em 0"}}/>
-                    <h5 className="review-header">
+                    <div className="review-header">
                       <strong className="brand-pink">{review.rating} </strong>
                       - {review.review_header}
-                    </h5>
-                    <p>{review.review_body}</p>
+                    </div>
+                    <p className="review-body">{review.review_body}</p>
                     <span className="review-type">{review.type_and_verified}</span>
                   </div>
                 </div>

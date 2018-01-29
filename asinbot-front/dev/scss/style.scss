@@ -221,8 +221,18 @@ body {
 
 //Reviews styling
 
-.reviews-header {
+.review-section-split {
 	margin: 0;
+}
+
+.review-header {
+	margin: 0.8em 0 1em;
+	font-size: 16px;
+}
+
+.review-body {
+	font-size: 14px;
+	font-weight: 300;
 }
 
 .review {
@@ -246,10 +256,6 @@ body {
 .review-date {
 	font-size: 14px;
 	color: rgba(39, 69, 85, 0.7);
-}
-
-.review-header {
-	margin: 1em 0 0.7em;
 }
 
 .review-type {
